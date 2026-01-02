@@ -1,0 +1,479 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+:root {
+    --primary: #4facfe;
+    --text-dark: #2c3e50;
+    --font-title: 'Fredoka', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 100%);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* Fondo Animado */
+.background-scenery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.sun {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: #feca57;
+    border-radius: 50%;
+    box-shadow: 0 0 60px #ff9f43;
+}
+
+.cloud {
+    background: white;
+    width: 150px;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute;
+    opacity: 0.8;
+    animation: floatCloud 40s linear infinite;
+}
+
+.cloud::after,
+.cloud::before {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::after {
+    top: -30px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.cloud::before {
+    top: -40px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.cloud1 {
+    top: 10%;
+    left: -20%;
+}
+
+.cloud2 {
+    top: 20%;
+    left: -10%;
+    animation-delay: 5s;
+    transform: scale(0.8);
+}
+
+.cloud3 {
+    top: 50%;
+    left: -30%;
+    animation-delay: 15s;
+}
+
+@keyframes floatCloud {
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+/* --- HEADER --- */
+.main-header {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+}
+
+.jesus-img {
+    width: 250px;
+    filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s;
+}
+
+.jesus-img:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.title-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 40px;
+    border-radius: 40px;
+    box-shadow: 0 15px 35px rgba(0, 168, 255, 0.2);
+    border: 5px solid white;
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+}
+
+.title-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50px;
+    border: 2px dashed #4facfe;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.church-name {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: #7f8c8d;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #00a8ff;
+    font-size: 2.8rem;
+    display: block;
+    text-shadow: 2px 2px 0px #ccefff;
+}
+
+.year-badge {
+    background: #ff9f43;
+    color: white;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-weight: 800;
+    margin: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.sub-title {
+    font-family: var(--font-title);
+    color: #2c3e50;
+    margin: 5px 0 15px 0;
+}
+
+.verse-container {
+    background: #e1f5fe;
+    color: #0277bd;
+    padding: 10px;
+    border-radius: 15px;
+    font-style: italic;
+    border-left: 6px solid #29b6f6;
+    font-size: 0.9rem;
+}
+
+/* --- TARJETAS --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 80px 20px;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.month-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+    border-radius: 35px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--card-shadow);
+    border: 5px solid white;
+    transition: all 0.3s ease;
+}
+
+.month-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #4facfe;
+}
+
+.emoji-circle {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.month-card:hover .emoji-circle {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.month-name {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.month-theme {
+    background: #00d2d3;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+
+.theme-blue {
+    background: #54a0ff;
+}
+
+.theme-orange {
+    background: #ff9f43;
+}
+
+.theme-red {
+    background: #ff6b6b;
+}
+
+.theme-green {
+    background: #1dd1a1;
+}
+
+/* --- MODAL Y TABLA --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* --- BOTÓN X MÁS LINDO --- */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: #ff6b6b;
+    /* Color rojo coral */
+    color: white;
+    border-radius: 50%;
+    /* Redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid white;
+    /* Borde blanco bonito */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #ee5253;
+    transform: rotate(90deg) scale(1.1);
+    /* Animación al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1f2f6;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    color: #2980b9;
+    margin: 0;
+}
+
+.modal-header p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+/* --- ESTILOS DE TABLA COMPACTA Y LINDA --- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 800px;
+    border-radius: 15px;
+    /* Bordes redonditos */
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+}
+
+/* ENCABEZADO (TH) - Centrado y Azul Lindo */
+th {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    /* Azul Océano Mate (Elegante) */
+    color: white;
+    padding: 8px 5px;
+    /* POCO espacio para que sea compacto */
+    text-align: center;
+    /* TEXTO CENTRADO */
+    vertical-align: middle;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    border: none;
+    letter-spacing: 0.5px;
+}
+
+/* CELDAS (TD) - Compactas */
+td {
+    padding: 6px 8px;
+    /* Compacto: menos altura */
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    font-size: 0.9rem;
+    /* Letra un pelín más pequeña para que quepa todo */
+    vertical-align: middle;
+    line-height: 1.2;
+    /* Líneas más pegaditas */
+}
+
+/* COLUMNA # (Rosa Tierno) */
+td:nth-child(1) {
+    font-weight: 800;
+    text-align: center;
+    background-color: #fff0f6;
+    color: #e84393;
+    border-right: 1px dashed #fad390;
+    width: 40px;
+}
+
+/* COLUMNA MAESTRAS (Crema con letras Naranjas) */
+td:last-child {
+    font-weight: bold;
+    color: #d35400;
+    background: #fff8e1;
+    border-left: 2px solid white;
+    font-size: 0.85rem;
+}
+
+/* Resto de columnas */
+td:nth-child(2) {
+    font-weight: bold;
+    color: #2980b9;
+    text-align: center;
+}
+
+/* Día centrado */
+td:nth-child(3) {
+    font-weight: bold;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+/* Fecha centrada */
+td:nth-child(4) {
+    font-weight: 700;
+    color: #c0392b;
+    width: 35%;
+}
+
+/* Historia */
+td:nth-child(5) {
+    font-style: italic;
+    color: #16a085;
+    font-size: 0.85rem;
+}
+
+/* Cita */
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) td:not(:first-child):not(:last-child) {
+    background-color: #fbfbfb;
+}
+
+tr:hover td:not(:first-child) {
+    background-color: #eaf2f8;
+}
+
+/* --- PIE DE PÁGINA (CENTRADO) --- */
+.footer-note {
+    text-align: center;
+    /* Centrado */
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: #95a5a6;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
