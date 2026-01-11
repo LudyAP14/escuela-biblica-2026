@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificación Escuela Bíblica Santa Sion 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="index.html" style="position: absolute; top: 20px; left: 20px; background: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; color: #333; box-shadow: 0 5px 10px rgba(0,0,0,0.1);">⬅ Volver al Menú</a>
+    
+    <div class="background-scenery">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="character-wrapper">
+                <img src="jesus.jpg" alt="Jesús" class="jesus-img">
+            </div>
+
+            <div class="title-card">
+                <h1 class="church-name">Iglesia de Dios de la Profecía <br> <span class="highlight">"Santa Sion"</span></h1>
+                <div class="year-badge">PROGRAMACIÓN 2026</div>
+                <h2 class="sub-title">Escuela Bíblica de Niños</h2>
+                <div class="verse-container">
+                    <p>"Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él."</p>
+                    <strong>Proverbios 22:6</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="months-grid" id="monthsGrid"></div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            
+            <div class="modal-header" id="modalHeader">
+                </div>
+            
+            <div class="table-responsive">
+                <table id="scheduleTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>📅 Día</th>
+                            <th>📌 Fecha</th>
+                            <th>📖 Historia</th>
+                            <th>✝️ Versículo</th>
+                            <th>💡 Pensamiento</th>
+                            <th>👩‍🏫 Maestras</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <div class="footer-note">Iglesia de Dios de la Profecía "Santa Sion"</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

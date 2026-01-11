@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia - Santa Sion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_asistencia.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="background-scenery no-export">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+    </div>
+
+    <div class="container">
+        <div class="interface-header no-export">
+            <h1>Generar Asistencia</h1>
+            <p>Selecciona el mes para imprimir</p>
+        </div>
+        
+        <div class="month-selector no-export" id="monthSelector"></div>
+
+        <div id="printArea">
+            <div id="annualCover" class="annual-cover"></div>
+            <div id="coverPage" class="cover-page"></div>
+            <div id="listContainer"></div>
+        </div>
+        
+        <div style="height: 100px;"></div>
+    </div>
+
+    <div class="action-bar no-export">
+        <a href="index.html" class="btn-action btn-back">⬅ Menú</a>
+        <button class="btn-action btn-pdf" onclick="exportPDF()">🖨️ Descargar PDF</button>
+    </div>
+
+    <script src="script_asistencia.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+body {
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 100%);
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Fondo Animado */
+.background-scenery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.sun {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: #feca57;
+    border-radius: 50%;
+    box-shadow: 0 0 60px #ff9f43;
+}
+
+.cloud {
+    background: white;
+    width: 150px;
+    height: 60px;
+    border-radius: 50px;
+    position: absolute;
+    opacity: 0.8;
+    animation: floatCloud 40s linear infinite;
+}
+
+.cloud::after,
+.cloud::before {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::after {
+    top: -30px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.cloud::before {
+    top: -40px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.cloud1 {
+    top: 10%;
+    left: -20%;
+}
+
+.cloud2 {
+    top: 20%;
+    left: -10%;
+    animation-delay: 5s;
+    transform: scale(0.8);
+}
+
+@keyframes floatCloud {
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+/* Interfaz Web */
+.interface-header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.interface-header h1 {
+    font-family: 'Fredoka';
+    color: #2c3e50;
+    font-size: 3rem;
+    text-shadow: 2px 2px 0px white;
+    margin: 0;
+}
+
+.interface-header p {
+    font-family: 'Nunito';
+    color: #555;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.month-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding: 0 10px;
+}
+
+.month-btn {
+    background: white;
+    border: 3px solid #ffeb3b;
+    color: #f39c12;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Fredoka';
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 0 #f1c40f;
+}
+
+.month-btn:hover {
+    transform: translateY(-3px);
+}
+
+.month-btn.active {
+    background: #4facfe;
+    color: white;
+    border-color: #4facfe;
+    box-shadow: 0 4px 0 #2980b9;
+}
+
+.action-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 15px;
+    border: 3px solid #4facfe;
+}
+
+.btn-action {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Nunito';
+}
+
+.btn-back {
+    background: #f1f2f6;
+    color: #555;
+    text-decoration: none;
+}
+
+.btn-pdf {
+    background: #ff6b6b;
+    color: white;
+    box-shadow: 0 4px 0 #c0392b;
+}
+
+.btn-pdf:hover {
+    transform: translateY(-3px);
+}
+
+/* --- ÁREA DE IMPRESIÓN --- */
+#printArea {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: none;
+    border-radius: 20px;
+}
+
+#printArea.visible {
+    display: block;
+}
+
+#printArea.printing-mode {
+    width: 700px !important;
+    max-width: 700px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* --- PORTADA ANUAL --- */
+.annual-cover {
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: white;
+    border: 5px solid #4facfe;
+    outline: 5px solid #fff;
+    box-shadow: inset 0 0 0 10px #4facfe;
+    margin: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    page-break-after: always;
+    break-after: page;
+}
+
+.annual-logo {
+    width: 180px !important;
+    height: auto;
+    margin: 0 auto 40px auto;
+    display: block;
+}
+
+.annual-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #2980b9;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.annual-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.8rem;
+    color: #7f8c8d;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    padding: 10px 0;
+    width: 80%;
+}
+
+.church-details {
+    font-family: 'Fredoka';
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.annual-year {
+    font-size: 6rem;
+    color: #f39c12;
+    font-weight: 900;
+    margin-top: 40px;
+    text-shadow: 4px 4px 0 #ffeaa7;
+    font-family: 'Fredoka';
+}
+
+/* --- PORTADA MENSUAL --- */
+.cover-page {
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    page-break-after: always;
+    break-after: page;
+}
+
+.cover-logo {
+    width: 250px;
+    margin: 0 auto 30px auto;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+    display: block;
+}
+
+.cover-month {
+    font-family: 'Fredoka';
+    font-size: 4rem;
+    color: #2980b9;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    width: 100%;
+}
+
+.cover-theme-label {
+    font-family: 'Nunito';
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    margin: 20px auto 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+.cover-theme {
+    font-family: 'Fredoka';
+    font-size: 2.5rem;
+    color: #d35400;
+    margin: 15px auto;
+    background: #fff3e0;
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 3px solid #ffcc80;
+    display: inline-block;
+    max-width: 90%;
+}
+
+.cover-year {
+    font-family: 'Fredoka';
+    font-size: 2rem;
+    color: #95a5a6;
+    margin-top: 40px;
+}
+
+/* --- CONTENEDOR DE PÁGINA DE LISTA --- */
+.page-container {
+    min-height: 950px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    page-break-after: always;
+    break-after: page;
+    background: white;
+}
+
+/* ENCABEZADO DE LISTA */
+.doc-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    border-bottom: 3px dashed #4facfe;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.doc-logo-small {
+    width: 120px !important;
+    height: auto;
+    object-fit: contain;
+}
+
+.doc-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.doc-info h1 {
+    font-family: 'Fredoka';
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.doc-info h2 {
+    font-family: 'Fredoka';
+    color: #2980b9;
+    margin: 5px 0 0 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.doc-info h3 {
+    font-family: 'Nunito';
+    color: #7f8c8d;
+    margin: 2px 0 0 0;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* FICHAS */
+.day-card {
+    border: 2px solid #4facfe;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 3px 3px 0 rgba(79, 172, 254, 0.1);
+    -webkit-print-color-adjust: exact;
+}
+
+.day-header {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Fredoka';
+    font-size: 1rem;
+    -webkit-print-color-adjust: exact;
+}
+
+.form-section {
+    padding: 8px 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-label {
+    font-size: 0.65rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 2px;
+    display: block;
+    font-family: 'Nunito';
+}
+
+.form-line {
+    height: 18px;
+    border-bottom: 1px dashed #999;
+    background-color: #fafafa;
+    border-radius: 4px 4px 0 0;
+    -webkit-print-color-adjust: exact;
+}
+
+/* Estadísticas */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 2px solid #4facfe;
+    -webkit-print-color-adjust: exact;
+}
+
+.stat-item {
+    padding: 5px;
+    text-align: center;
+    border-right: 1px dashed #ccc;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.bg-pink {
+    background-color: #fff0f6 !important;
+}
+
+.bg-blue {
+    background-color: #e3f2fd !important;
+}
+
+.bg-yellow {
+    background-color: #fffde7 !important;
+}
+
+.bg-green {
+    background-color: #e8f5e9 !important;
+}
+
+.stat-label {
+    font-weight: bold;
+    font-family: 'Fredoka';
+    font-size: 0.7rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.stat-circle {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    background: white;
+}
+
+/* --- NUEVO: CONTENEDOR DE OFRENDA (ÍCONO + CAJA) --- */
+.ofrenda-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Espacio entre el $ y la caja */
+    margin-top: 2px;
+}
+
+.dollar-icon {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #27ae60;
+    background: white;
+    width: 24px;
+    height: 24px;
+    line-height: 22px;
+    border-radius: 50%;
+    border: 2px solid #2ecc71;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ofrenda-input {
+    width: 60px;
+    /* Ancho del recuadro */
+    height: 24px;
+    background: white;
+    border: 2px solid #2ecc71;
+    /* Borde verde */
+    border-radius: 5px;
+}
+
+.obs-box {
+    padding: 5px 15px;
+    background: #f9f9f9;
+    border-top: 1px dashed #ccc;
+    -webkit-print-color-adjust: exact;
+}
+
+.no-export {}

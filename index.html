@@ -3,12 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planificación Escuela Bíblica Santa Sion 2026</title>
+    <title>Bienvenida - Santa Sion 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos Exclusivos de la Portada */
+        body { overflow-x: hidden; }
+        
+        .welcome-container {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; text-align: center; padding: 20px;
+            backdrop-filter: blur(2px);
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); max-width: 1000px; width: 100%; 
+            border: 8px solid white; position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .jesus-welcome { width: 280px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); margin-top: -80px; transition: transform 0.3s; }
+        .jesus-welcome:hover { transform: scale(1.05) rotate(2deg); }
+
+        h1 { font-family: 'Fredoka'; color: #2c3e50; font-size: 3.5rem; margin: 10px 0; text-shadow: 2px 2px 0px #fff; }
+        h2 { font-family: 'Nunito'; color: #4facfe; font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 40px; text-transform: uppercase; }
+
+        /* BOTONES COMO TARJETAS GIGANTES */
+        .cards-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; margin-top: 20px;
+        }
+
+        .menu-card {
+            text-decoration: none; background: white; padding: 30px; border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 4px solid transparent;
+            transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .menu-card:hover { transform: translateY(-10px); border-color: white; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+
+        .icon-large { font-size: 4rem; margin-bottom: 15px; }
+        .card-title { font-family: 'Fredoka'; font-size: 1.5rem; color: #333; margin: 0; }
+        .card-desc { font-family: 'Nunito'; color: #888; font-size: 0.9rem; margin-top: 5px; }
+
+        /* Colores Específicos */
+        .card-temas { background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%); border-bottom: 10px solid #4facfe; }
+        .card-temas .icon-large { text-shadow: 0 5px 0 rgba(79, 172, 254, 0.3); }
+        
+        .card-asistencia { background: linear-gradient(135deg, #fff0f6 0%, #fff 100%); border-bottom: 10px solid #ff6b6b; }
+        .card-asistencia .icon-large { text-shadow: 0 5px 0 rgba(255, 107, 107, 0.3); }
+
+        /* NUEVA TARJETA: AGENDA (MORADO) */
+        .card-agenda { background: linear-gradient(135deg, #f3e5f5 0%, #fff 100%); border-bottom: 10px solid #9b59b6; }
+        .card-agenda .icon-large { text-shadow: 0 5px 0 rgba(155, 89, 182, 0.3); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body>
-
     <div class="background-scenery">
         <div class="sun"></div>
         <div class="cloud cloud1"></div>
@@ -16,55 +69,34 @@
         <div class="cloud cloud3"></div>
     </div>
 
-    <header class="main-header">
-        <div class="header-container">
-            <div class="character-wrapper">
-                <img src="jesus.jpg" alt="Jesús" class="jesus-img">
-            </div>
+    <div class="welcome-container">
+        <div class="main-card">
+            <img src="Jesus_1.jpg" alt="Jesús" class="jesus-welcome">
+            
+            <h1>¡Dios te Bendiga!</h1>
+            <h2>Escuela Bíblica "Santa Sion"</h2>
+            
+            <div class="cards-container">
+                <a href="temas.html" class="menu-card card-temas">
+                    <div class="icon-large">📅</div>
+                    <h3 class="card-title">Planificación</h3>
+                    <p class="card-desc">Ver temas y maestras 2026</p>
+                </a>
 
-            <div class="title-card">
-                <h1 class="church-name">Iglesia de Dios de la Profecía <br> <span class="highlight">"Santa Sion"</span></h1>
-                <div class="year-badge">PROGRAMACIÓN 2026</div>
-                <h2 class="sub-title">Escuela Bíblica de Niños</h2>
-                <div class="verse-container">
-                    <p>"Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él."</p>
-                    <strong>Proverbios 22:6</strong>
-                </div>
+                <a href="asistencia.html" class="menu-card card-asistencia">
+                    <div class="icon-large">📝</div>
+                    <h3 class="card-title">Asistencia</h3>
+                    <p class="card-desc">Listados para imprimir</p>
+                </a>
+
+                <a href="agenda.html" class="menu-card card-agenda">
+                    <div class="icon-large">🤝</div>
+                    <h3 class="card-title">Agenda Reunión</h3>
+                    <p class="card-desc">Directiva Bimentral</p>
+                </a>
             </div>
         </div>
-    </header>
-
-    <main class="container">
-        <div class="months-grid" id="monthsGrid"></div>
-    </main>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            
-            <div class="modal-header" id="modalHeader">
-                </div>
-            
-            <div class="table-responsive">
-                <table id="scheduleTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>📅 Día</th>
-                            <th>📌 Fecha</th>
-                            <th>📖 Historia</th>
-                            <th>✝️ Versículo</th>
-                            <th>💡 Pensamiento</th>
-                            <th>👩‍🏫 Maestras</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody"></tbody>
-                </table>
-            </div>
-            <div class="footer-note">Iglesia de Dios de la Profecía "Santa Sion"</div>
-        </div>
+        <p style="margin-top: 20px; color: white; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">© 2026 Ministerio de Niños</p>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

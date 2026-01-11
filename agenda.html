@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Directiva - Santa Sion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_agenda.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="background-scenery no-export">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+    </div>
+
+    <div class="container">
+        <div class="interface-header no-export">
+            <h1>Agenda de Reuniones</h1>
+            <p>Directiva de Escuela Bíblica</p>
+        </div>
+        
+        <div class="meeting-selector no-export" id="meetingSelector"></div>
+
+        <div id="printArea">
+            <div class="doc-header">
+                <img src="LOGO_ESC_BIBLICA.png" alt="Logo" class="doc-logo">
+                <div class="doc-info">
+                    <h2>Iglesia de Dios de la Profecía</h2>
+                    <h3>"Santa Sion" - Nueva Concepción</h3>
+                    <div class="doc-title-box">AGENDA DE REUNIÓN</div>
+                </div>
+            </div>
+
+            <div class="meeting-meta">
+                <div class="meta-item"><strong>Reunión:</strong> <span id="mtgName"></span></div>
+                <div class="meta-item"><strong>Fecha:</strong> <span id="mtgDate"></span></div>
+                <div class="meta-item"><strong>Año:</strong> 2026</div>
+            </div>
+
+            <div class="agenda-body">
+                <h4 class="agenda-subtitle">PUNTOS A TRATAR:</h4>
+                <ul id="agendaList" class="agenda-list">
+                    </ul>
+            </div>
+
+            <div class="signatures">
+                <div class="sig-box">
+                    <div class="sig-line"></div>
+                    <span>Directora Escuela Bíblica</span>
+                </div>
+                <div class="sig-box">
+                    <div class="sig-line"></div>
+                    <span>Secretaria</span>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                "Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él." - Proverbios 22:6
+            </div>
+        </div>
+        
+        <div style="height: 100px;"></div>
+    </div>
+
+    <div class="action-bar no-export">
+        <a href="index.html" class="btn-action btn-back">⬅ Menú</a>
+        <button class="btn-action btn-pdf" onclick="exportPDF()">🖨️ Descargar Agenda</button>
+    </div>
+
+    <script src="script_agenda.js"></script>
+</body>
+</html>
